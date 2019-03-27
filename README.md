@@ -1,4 +1,4 @@
-# Transductive Classification of Chinese Hypernymy vs. Non-hypernymy Relations Based on Word Emebeddings
+# Iterative Extraction of Chinese Hypernymy Relations from User Generated Categories
 
 ### By Chengyu Wang (https://chywang.github.io)
 
