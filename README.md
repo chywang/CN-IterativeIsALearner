@@ -11,21 +11,33 @@
 
 **APIs**
 
-+ TransductLeaner: The main software entry-point, with five input argements required.
++ AlgMain (in the alg package): The main software entry-point, with seven input argements required.
 
-1. w2vPath: The embeddings of all Chinese words in either the training set or the testing set. The start of each line of the file is the Chinose word, followed by the embedding vectors. All the values in a line are separated by a blank (' '). In practice, the embeddings can be learned by all deep neural language models.
+1. iterationNumber: The number of iterations of our algorithm.
 
-> NOTE: Due to the large size of neural language models, we only upload the embedding vectors of words in the training and testing sets. Please use your own neural language model instead, if you would like to try the algorithm over your datasets.
+2. numOfAttr: The dimensionlaity of the embedding vectors.
 
-2. trainPath: The path of the training set in the format of "word1 \t word2 \t label" triples. As for the label, 1 is for the hypernymy relation and 0 is for the non-hypernymy relation.
+3. w2vFile: The embeddings of all Chinese words in either the training set or the unlabeled entity-category set. The start of each line of the file is the Chinose word, followed by the embedding vectors. All the values in a line are separated by a blank (' '). In practice, the embeddings can be learned by all deep neural language models.
 
-3. testPath: The path of the testing set. The format of the testing set is the same as that of the training set.
+> NOTE: Due to the large size of neural language models, we only upload the embedding vectors of words in the training and unlabeled sets. Please use your own neural language model instead, if you would like to try the algorithm over your datasets.
 
-4. outputPath: The path of the output file, containing the model prediction scores of all the pairs in the testing set. The output of each pair is a real value in (-1,1). (Please refer to the paper for detailed explanation.)
+4. positiveFile: The path of the training set, containing hypernymy relations in the format of "word1 \t word2" pairs. 
 
-5. dimension: The dimensionlaity of the embedding vectors.
+> NOTE: A sample file "positive.txt" is provided. The data is sampled from Cilin (http://www.ltp-cloud.com/download) and a human-labeled dataset from Chinese Wikipedia.
 
-> NOTE: The default values can be set are: "word_vectors.txt", "train.txt", "test.txt", "output.txt" and "50".
+5. unlabeledFile: The path of the unlabeled entity-category set. The format of the unlabeled set is the same as that of the training set.
+
+> NOTE: A sample file "unlabeled.txt" is provided. The data is crawled from the Baidu Baike categories (https://baike.baidu.com). We only provide a very small portion of the data here.
+
+6. hearstPosScoreFile: The positive scores of Chinese word pairs, computed based on Chinese Hearst-style patters.
+
+> NOTE: Refer to the next part for more details.
+
+6. hearstNegScoreFile: The negative scores of Chinese word pairs, computed based on Chinese co-hyponym patters.
+
+> NOTE: The default values can be set as: "5", "50", "word_vectors.txt", "positive.txt", "unlabeled.txt", "hearst/positiveScore.txt" and "hearst/negativeScore.txt".
+
+Output explanation:
 
 + Eval: A simple evaluation script,  with three input argements required. It outputs Precision, Recall and F1-score  as the evaluation scores. 
 
@@ -41,7 +53,7 @@
 
 1. This software is run in the JaveSE-1.8 environment. With a large probability, it runs properly in other versions of JaveSE as well. However, there is no guarantee.
 
-2. It requires the FudanNLP toolkit for Chinese NLP analysis (https://github.com/FudanNLP/fnlp/), and the JAMA library for matrix computation (https://math.nist.gov/javanumerics/jama/). We use Jama-1.0.3.jar in this project.
+2. It requires the Weka toolkit for implementations of sone basic machine learning algorithms (https://www.cs.waikato.ac.nz/ml/weka/), and the JAMA library for matrix computation (https://math.nist.gov/javanumerics/jama/). We use weka.jar (version 3.6.10) and Jama-1.0.3.jar in this project.
 
 **Citation**
 
