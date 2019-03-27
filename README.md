@@ -4,7 +4,7 @@
 
 **Introducion:** This software automantically extracts Chinese hypernymy relations from user generated entity-category pairs, based on a small training set of hypernymy relations. It iteratively updates the parameters of a piecewise linear projection model for hypernymy prediction via semi-supervised learning and pattern-based validation techniques. The projection model is trained using word embeddings of the iteratively enlarged training set.
 
-**Paper:** 
+**Paper** 
 1. Wang et al. Transductive Non-linear Learning for Chinese Hypernym Prediction. ACL 2017
 2. Wang et al. Predicting Hypernym-Hyponym Relations for Chinese Taxonomy Learning. KAIS (2019) (extended version)
 
@@ -54,6 +54,10 @@ Output explanation:
 1. This software is run in the JaveSE-1.8 environment. With a large probability, it runs properly in other versions of JaveSE as well. However, there is no guarantee.
 
 2. It requires the Weka toolkit for implementations of sone basic machine learning algorithms (https://www.cs.waikato.ac.nz/ml/weka/), and the JAMA library for matrix computation (https://math.nist.gov/javanumerics/jama/). We use weka.jar (version 3.6.10) and Jama-1.0.3.jar in this project.
+
+
+**Notes on the Algorithm** 
+
 
 **Citation**
 
