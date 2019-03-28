@@ -33,7 +33,7 @@
 
 > NOTE: Refer to the next part for more details.
 
-6. hearstNegScoreFile: The negative scores of Chinese word pairs, computed based on Chinese co-hyponym patters.
+7. hearstNegScoreFile: The negative scores of Chinese word pairs, computed based on Chinese co-hyponym patters.
 
 > NOTE: The default values can be set as: "5", "50", "word_vectors.txt", "positive.txt", "unlabeled.txt", "hearst/positiveScore.txt" and "hearst/negativeScore.txt".
 
@@ -41,15 +41,15 @@ Output explanation:
 
 To output the results in each iteration, the algorithm automatically creates a folder named "iter"+iteration number (starting from 0). In each folder, “canPos.txt” contains new hypernymy relations predicted by the algorithm in the corresponding iteration. "validatePos.txt" contains a subset of hypernymy relations in “canPos.txt”, which have been validated by the pattern-based technique.
 
-+ Eval: A simple evaluation script,  with three input arguments required. It outputs Precision, Recall and F1-score  as the evaluation scores. 
++ HearstPositiveScore and HearstNegativeScore (in the hearst package): Two simple scripts to compute positive and negative pattern-based scores for Chinese word pairs, which are required to be pre-computed before we run the AlgMain program.
 
-1. truthPath: The path of the testing set, with human-labeled results.
+1. HearstPositiveScore: It uses the statistics in "hearstOneStat.txt" and "hearstTwoStat.txt" as input, which are the number of matches of Is-A and Such-As patterns for word pairs in the text corpus.
 
-2. predictPath: The path of the model output file,.
+> Refer to the score $n_1(x_i, y)$ in the paper.
 
-3. thres: A threshold in (-1,1) for the model to assign relation labels to Chinese word pairs. (Please refer to the parameter 'θ' in the paper.)
+2. HearstNegativeScore:  It uses the statistics in "hearstTwoStatSingle.txt" and "hearstTwoStatPair.txt" as input, which are the number of matches of Co-Hyponym patterns for word pairs in the text corpus.
 
-> NOTE: The default values can be set as: "test.txt", "output.txt" and "0.1".
+> Refer to the scores $n_2(x_i, x_j)$ and $n_2(x_i)$ in the paper.
 
 **Dependencies**
 
