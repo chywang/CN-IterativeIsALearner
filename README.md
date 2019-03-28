@@ -2,22 +2,22 @@
 
 ### By Chengyu Wang (https://chywang.github.io)
 
-**Introducion:** This software automantically extracts Chinese hypernymy relations from user generated entity-category pairs, based on a small training set of hypernymy relations. It iteratively updates the parameters of a piecewise linear projection model for hypernymy prediction via semi-supervised learning and pattern-based validation techniques. The projection model is trained using word embeddings of the iteratively enlarged training set.
+**Introduction:** This software automatically extracts Chinese hypernymy relations from user generated entity-category pairs, based on a small training set of hypernymy relations. It iteratively updates the parameters of a piecewise linear projection model for hypernymy prediction via semi-supervised learning and pattern-based validation techniques. The projection model is trained using word embeddings of the iteratively enlarged training set.
 
-**Paper** 
+**Papers** 
 1. Wang et al. Transductive Non-linear Learning for Chinese Hypernym Prediction. ACL 2017
 2. Wang et al. Predicting Hypernym-Hyponym Relations for Chinese Taxonomy Learning. KAIS (2019) (extended version)
 
 
 **APIs**
 
-+ AlgMain (in the alg package): The main software entry-point, with seven input argements required.
++ AlgMain (in the alg package): The main software entry-point, with seven input arguments required.
 
 1. iterationNumber: The number of iterations of our algorithm.
 
-2. numOfAttr: The dimensionlaity of the embedding vectors.
+2. numOfAttr: The dimensionality of the embedding vectors.
 
-3. w2vFile: The embeddings of all Chinese words in either the training set or the unlabeled entity-category set. The start of each line of the file is the Chinose word, followed by the embedding vectors. All the values in a line are separated by a blank (' '). In practice, the embeddings can be learned by all deep neural language models.
+3. w2vFile: The embeddings of all Chinese words in either the training set or the unlabeled entity-category set. The start of each line of the file is the Chinese word, followed by the embedding vectors. All the values in a line are separated by a blank (' '). In practice, the embeddings can be learned by all deep neural language models.
 
 > NOTE: Due to the large size of neural language models, we only upload the embedding vectors of words in the training and unlabeled sets. Please use your own neural language model instead, if you would like to try the algorithm over your datasets.
 
@@ -39,7 +39,9 @@
 
 Output explanation:
 
-+ Eval: A simple evaluation script,  with three input argements required. It outputs Precision, Recall and F1-score  as the evaluation scores. 
+To output the results in each iteration, the algorithm automatically creates a folder named "iter"+iteration number (starting from 0). In each folder, “canPos.txt” contains new hypernymy relations predicted by the algorithm in the corresponding iteration. "validatePos.txt" contains a subset of hypernymy relations in “canPos.txt”, which have been validated by the pattern-based technique.
+
++ Eval: A simple evaluation script,  with three input arguments required. It outputs Precision, Recall and F1-score  as the evaluation scores. 
 
 1. truthPath: The path of the testing set, with human-labeled results.
 
@@ -59,7 +61,7 @@ Output explanation:
 **Notes on the Algorithm** 
 
 
-**Citation**
+**Citations**
 
 If you find this software useful for your research, please cite the following papers.
 
