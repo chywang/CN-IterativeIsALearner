@@ -51,6 +51,8 @@ To output the results in each iteration, the algorithm automatically creates a f
 
 > Refer to the scores $n_2(x_i, x_j)$ and $n_2(x_i)$ in the paper.
 
+> If you would like to test our method on your own datasets and text corpus, please supply the statistics to substitute these files.
+
 **Dependencies**
 
 1. This software is run in the JaveSE-1.8 environment. With a large probability, it runs properly in other versions of JaveSE as well. However, there is no guarantee.
@@ -58,8 +60,9 @@ To output the results in each iteration, the algorithm automatically creates a f
 2. It requires the Weka toolkit for implementations of sone basic machine learning algorithms (https://www.cs.waikato.ac.nz/ml/weka/), and the JAMA library for matrix computation (https://math.nist.gov/javanumerics/jama/). We use weka.jar (version 3.6.10) and Jama-1.0.3.jar in this project.
 
 
-**Notes on the Algorithm** 
+**More Notes on the Algorithm** 
 
+This is the improved algorithm of our COLING 2016 paper. The clustering process and pattern-based scores are slightly changed to make the algorithm more robust to noise. Due to the complicated nature of this approach, we only provide limited APIs here. For more details, please contact the authors directly.
 
 **Citations**
 
