@@ -57,7 +57,7 @@ To output the results in each iteration, the algorithm automatically creates a f
 
 1. This software is run in the JaveSE-1.8 environment. With a large probability, it runs properly in other versions of JaveSE as well. However, there is no guarantee.
 
-2. It requires the Weka toolkit for implementations of sone basic machine learning algorithms (https://www.cs.waikato.ac.nz/ml/weka/), and the JAMA library for matrix computation (https://math.nist.gov/javanumerics/jama/). We use weka.jar (version 3.6.10) and Jama-1.0.3.jar in this project.
+2. It requires the Weka toolkit for implementations of some basic machine learning algorithms (https://www.cs.waikato.ac.nz/ml/weka/), and the JAMA library for matrix computation (https://math.nist.gov/javanumerics/jama/). We use weka.jar (version 3.6.10) and Jama-1.0.3.jar in this project.
 
 
 **More Notes on the Algorithm** 
